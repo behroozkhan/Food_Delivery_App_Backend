@@ -13,7 +13,7 @@ const userSchema = new Schema({
 
 //Customer Schema
 
-const CustomerSchema = new mongoose.Schema({
+const customerSchema = new mongoose.Schema({
   ...userSchema.obj,
   phone: { type: Number, required: true, unique: true },
   role: { type: String, enum: ["Customer"], default: "Customer" },
@@ -52,3 +52,8 @@ const adminSchema = new mongoose.Schema({
     email:{type:String,required:true, unique:true},
     role:{type:String, enum:["Admin"], default:"Admin"},
 });
+
+
+export const Customer = mongoose.model("Customer",customerSchema);
+export const DeliveryPartner = mongoose.model("DeliveryPartner",deliveryPartnerSchema);
+export const Admin = mongoose.model("Admin",adminSchema);
