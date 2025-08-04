@@ -1,4 +1,7 @@
-import { Branch, Customer, DeliveryPartner, Order } from "../../models";
+import { DeliveryPartner, Customer } from "../../models/user.js";
+import Branch from "../../models/branch.js";
+import Order from "../../models/order.js";
+
 
 export const createOrder = async (req, reply) => {
   try {
