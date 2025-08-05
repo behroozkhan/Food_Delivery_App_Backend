@@ -1,13 +1,14 @@
 import "dotenv/config";
 import fastifySession from "@fastify/session";
-import ConnectMongoDBSession, { MongoDBStore } from "connect-mongodb-session";
+import ConnectMongoDBSession from "connect-mongodb-session";
 import { Admin } from "../models/index.js";
 
 export const PORT = process.env.PORT || 3000;
 export const COOKIE_PASSWORD = process.env.COOKIE_PASSWORD;
 
 const MongoDbStore = ConnectMongoDBSession(fastifySession);
-export const sessionStore = new MongoDBStore({
+
+export const sessionStore = new MongoDbStore({
   uri: process.env.MONGO_URI,
   collection: "sessions",
 });
