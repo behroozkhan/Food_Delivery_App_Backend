@@ -17,27 +17,27 @@ sessionStore.on("error", (error) => {
   console.log("Session store error", error);
 });
 
-export const autheticate = async (email, password) => {
-  if (email && password) {
-    if (email == "behroozkhan77@gmail.com" && password === "behrooz1234456") {
-      return Promise.resolve({ email: email, password: password });
-    } else {
-      return null;
-    }
-  }
-
-  //MANUALLY ADMIN CREATED IN DATBASE
-  // if(email && password){
-  //     const user = await Admin.findOne({email});
-  //     if(!user){
-  //         return null;
-  //     }
-  //     if(user.password === password){
-  //         return Promise.resolve({email:email, password:password});
-  //     }else{
-  //         return null;
-  //     };
+export const authenticate = async (email, password) => {
+  // if (email && password) {
+  //   if (email == "behroozkhan77@gmail.com" && password === "behrooz1234456") {
+  //     return Promise.resolve({ email: email, password: password });
+  //   } else {
+  //     return null;
+  //   }
   // }
+
+  
+  if(email && password){
+      const user = await Admin.findOne({email});
+      if(!user){
+          return null;
+      }
+      if(user.password === password){
+          return Promise.resolve({email:email, password:password});
+      }else{
+          return null;
+      };
+  }
 
   return null;
 };
