@@ -20,6 +20,7 @@ const start = async () => {
     transports:["websocket"]
   });
 
+  
   await registerRoutes(app);
   await buildAdminRouter(app);
 
@@ -30,7 +31,6 @@ const start = async () => {
         console.log(`Food Delivery App running on http://localhost:${PORT}${admin.options.rootPath}`)
     }
   });
-
 
   app.ready().then(()=>{
     app.io.on('connection',(socket)=>{
@@ -47,8 +47,6 @@ const start = async () => {
 
     })
   });
-
-
 
 };
 
